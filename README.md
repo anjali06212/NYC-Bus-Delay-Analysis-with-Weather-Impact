@@ -1,62 +1,84 @@
-## NYC Bus Delay Analysis with Weather Impact
- ## Overview
+# Predictive Analytics for NYC Bus Delays Using Weather & Temporal Features
 
-This project analyzes public transportation delays in New York City and examines how weather conditions and time-based factors influence severe bus delays. The goal is to build a realistic, interpretable machine learning model using real-world data.
+## Brief Description
+This project focuses on analyzing and predicting severe bus delays in New York City using real-world transportation and weather datasets. The objective was to understand how weather conditions and time-based patterns influence public transport delays and build a machine learning model capable of predicting severe delay occurrences.
 
-##  Datasets Used
+The project combines NYC bus breakdown data with hourly weather records and applies data preprocessing, feature engineering, exploratory data analysis (EDA), and classification models to generate insights and predictions.
 
-NYC Bus Breakdown and Delays (NYC Open Data)
+---
 
-NYC Weather Data (2016–2022)
+## Technologies Used
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-learn
+- Jupyter Notebook / Google Colab
 
-Both datasets were merged using nearest timestamps to align transit events with corresponding weather conditions.
+---
 
-##  Key Steps
+## Features
+- Cleaned and processed large real-world datasets containing noisy values
+- Merged transportation and weather datasets using nearest timestamp matching
+- Performed feature engineering for time and weather-related factors
+- Conducted exploratory data analysis to identify delay trends
+- Built classification models to predict severe delays
+- Compared Logistic Regression and Random Forest performance
+- Evaluated models using confusion matrix, ROC curve, and learning curves
 
-Data cleaning and preprocessing of noisy real-world datasets
+---
 
-Handling extreme outliers in delay duration
+## Process
+1. Imported NYC bus delay and weather datasets
+2. Cleaned missing values and inconsistent records
+3. Converted timestamps into usable datetime formats
+4. Engineered features such as:
+   - Peak hour indicator
+   - Weekend flag
+   - Rain condition flag
+   - Hour and weekday extraction
+5. Merged datasets using nearest timestamps
+6. Defined severe delay classification target
+7. Split dataset into training and testing sets
+8. Trained Logistic Regression and Random Forest models
+9. Evaluated model performance and extracted insights
 
-Feature engineering (peak hours, weekend flags, weather indicators)
+---
 
-Exploratory Data Analysis (EDA) to identify delay patterns
+## How You Built It
+The project was built using Python in Google Colab/Jupyter Notebook. The NYC bus delay dataset and NYC weather dataset were loaded and preprocessed separately. Delay durations were cleaned and capped to reduce the impact of extreme outliers.
 
-Predictive modeling using Logistic Regression, Decision Tree, and Random Forest
+Feature engineering techniques were applied to create meaningful predictors related to time and weather conditions. Both datasets were then merged using timestamp-based alignment with `merge_asof()`.
 
-Model validation using train-test split, confusion matrix, ROC curve, and learning curves
+Machine learning models including Logistic Regression and Random Forest were trained using Scikit-learn. Random Forest achieved the best performance with approximately 79% test accuracy. Visualization libraries such as Matplotlib and Seaborn were used to analyze trends and model behavior.
 
-## Model & Results
+---
 
-Final Model: Random Forest Classifier
+## What You Learned
+- Handling and preprocessing noisy real-world datasets
+- Feature engineering for machine learning tasks
+- Time-series based dataset merging
+- Building and evaluating classification models
+- Understanding class imbalance challenges
+- Comparing linear and tree-based machine learning models
+- Extracting business insights from transportation data
 
-## Test Accuracy: ~79%
+---
 
-Demonstrated strong generalization with minimal train–test performance gap
+## Future Improvements
+- Add route-level and borough-level historical analysis
+- Integrate live traffic or GPS-based features
+- Apply advanced models such as XGBoost or LightGBM
+- Improve severe delay prediction using imbalance handling techniques
+- Deploy the model as an interactive dashboard or API
 
-No evidence of overfitting based on learning curve analysis
+---
 
-## Key Insights
+## Results
+- Best Model: Random Forest Classifier
+- Test Accuracy: ~79%
+- Peak hours and rainy weather significantly increased delay risk
+- Tree-based models outperformed linear models for this problem
 
-Peak hours and rainy conditions significantly increase delay risk
-
-Severe delays are harder to predict due to operational randomness
-
-Tree-based models outperform linear baselines for this problem
-
-## Tech Stack
-
-Python
-
-Pandas, NumPy
-
-Matplotlib, Seaborn
-
-Scikit-learn
-
- ## Future Improvements
-
-Incorporate route-level historical trends
-
-Add traffic or GPS-based features
-
-Deploy model as a simple API or dashboard
+---
